@@ -1,0 +1,38 @@
+<div id="storLocator-page" class="container staticPage">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="title text-center">Store Locator</h2>
+			<div>
+				<p>Enter a city for our store locations:</p><br>
+				<!--
+				<a class="btn btn-link" (click)="click('markham')">Markham</a>,
+				<button class="btn btn-link" (click)="click('miami')">Miami</button>
+				-->
+			</div>
+			<div>
+				<form (submit)="getStores(city.value)">
+					<div>
+						<label for="city">City:</label>
+						<input type="text" #city  >
+					</div>
+				</form>
+			</div>
+			<div>
+				<h2 class="title text-center">Store Location</h2>
+			</div>
+			<div *ngFor="let store of msg">
+				<h3>{{store.Description[0].displayStoreName}}</h3>
+				<p>{{store.addressLine[0]}}</p>
+				<p>{{store.city}}, {{store.stateOrProvinceName}}</p>
+				<p>{{store.postalCode}}</p>
+				<p>Tel.: {{store.telephone1}}</p>
+				<div *ngFor="let attribute of store.Attribute">
+					<div *ngIf="attribute.name=='StoreHours'"> 
+						<p>Store hours: </p>
+						<div [innerHTML]="attribute.value"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,529 @@
+{
+    "apiVersion": "WC.TOOLKIT Enterprise Version : 8 Fix Pack : 0",
+    "basePath": "https:\/\/@localhost\/wcs\/resources",
+    "models": {
+        "Empty": {
+            "id": "Empty",
+            "description": "Empty model. Used as default value when no model is specified.",
+            "properties": {}
+        },
+        "geonode-geonode_item.userDataField": {
+            "id": "geonode-geonode_item.userDataField",
+            "properties": {
+                "value": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "key": {
+                    "description": "",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "geonode-geonode_item.Description": {
+            "id": "geonode-geonode_item.Description",
+            "properties": {
+                "shortDescription": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        "geonode-geonode_item": {
+            "id": "geonode-geonode_item",
+            "properties": {
+                "Description": {
+                    "items": {
+                        "$ref": "geonode-geonode_item.Description"
+                    },
+                    "description": "",
+                    "required": false,
+                    "type": "array"
+                },
+                "name": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "uniqueID": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "type": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "userDataField": {
+                    "items": {
+                        "$ref": "geonode-geonode_item.userDataField"
+                    },
+                    "description": "",
+                    "required": false,
+                    "type": "array"
+                }
+            }
+        },
+        "geonode-geonode": {
+            "id": "geonode-geonode",
+            "properties": {
+                "recordSetTotal": {
+                    "description": "",
+                    "format": "int64",
+                    "type": "string",
+                    "required": false
+                },
+                "recordSetCount": {
+                    "description": "",
+                    "format": "int64",
+                    "type": "string",
+                    "required": false
+                },
+                "GeoNode": {
+                    "items": {
+                        "$ref": "geonode-geonode_item"
+                    },
+                    "description": "",
+                    "required": false,
+                    "type": "array"
+                },
+                "recordSetComplete": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "recordSetStartNumber": {
+                    "description": "",
+                    "format": "int64",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        }
+    },
+    "swaggerVersion": "1.2",
+    "resourcePath": "store\/{storeId}\/geonode",
+    "apis": [
+        {
+            "path": "\/store\/{storeId}\/geonode\/byTopGeoNode",
+            "operations": [
+                {
+                    "summary": "Gets the top geo nodes.",
+                    "responseClass": "geonode-geonode",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findTopGeoNodes",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The response format. If the request has an input body, that body must also use the format specified in \"responseFormat\". Valid values include \"json\" and \"xml\" without the quotes. If the responseFormat isn't specified, the \"accept\" HTTP header shall be used to determine the format of the response. If the \"accept\" HTTP header isn't specified as well, the default response format shall be in json.",
+                            "name": "responseFormat",
+                            "allowMultiple": false,
+                            "enum": [
+                                "xml",
+                                "json"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The site level search flag.  If it is 'true', a site level search will be performed; otherwise, a store level search will be performed.  Optional parameter; when it is not set, it is defaulted to 'true'.",
+                            "name": "siteLevelSearch",
+                            "allowMultiple": false,
+                            "enum": [
+                                "true",
+                                "false"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "geonode-geonode",
+                    "notes": "The response schema will flatten the result if a single object is returned in the list.",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        },
+        {
+            "path": "\/store\/{storeId}\/geonode\/byTopGeoNode",
+            "operations": [
+                {
+                    "summary": "Gets the top geo nodes for the site.",
+                    "responseClass": "geonode-geonode",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findTopGeoNodes",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The response format. If the request has an input body, that body must also use the format specified in \"responseFormat\". Valid values include \"json\" and \"xml\" without the quotes. If the responseFormat isn't specified, the \"accept\" HTTP header shall be used to determine the format of the response. If the \"accept\" HTTP header isn't specified as well, the default response format shall be in json.",
+                            "name": "responseFormat",
+                            "allowMultiple": false,
+                            "enum": [
+                                "xml",
+                                "json"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "geonode-geonode",
+                    "notes": "The response schema will flatten the result if a single object is returned in the list.",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        },
+        {
+            "path": "\/store\/{storeId}\/geonode\/byParentGeoNode\/{parentgeoid}",
+            "operations": [
+                {
+                    "summary": "Gets the geo nodes by the parent geo node unique ID.",
+                    "responseClass": "geonode-geonode",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findGeoByParentGeoId",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The parent geo node identifier.",
+                            "name": "parentgeoid",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The response format. If the request has an input body, that body must also use the format specified in \"responseFormat\". Valid values include \"json\" and \"xml\" without the quotes. If the responseFormat isn't specified, the \"accept\" HTTP header shall be used to determine the format of the response. If the \"accept\" HTTP header isn't specified as well, the default response format shall be in json.",
+                            "name": "responseFormat",
+                            "allowMultiple": false,
+                            "enum": [
+                                "xml",
+                                "json"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "geonode-geonode",
+                    "notes": "The response schema will flatten the result if a single object is returned in the list.",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        },
+        {
+            "path": "\/store\/{storeId}\/geonode",
+            "operations": [
+                {
+                    "summary": "Find geo nodes that match the type and the name.",
+                    "responseClass": "geonode-geonode",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findGeoByTypeAndName",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The site level search flag.  If it is 'true', a site level search will be performed; otherwise, a store level search will be performed.  Optional parameter; when it is not set, it is defaulted to 'true'.",
+                            "name": "siteLevelSearch",
+                            "allowMultiple": false,
+                            "enum": [
+                                "true",
+                                "false"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The query name.",
+                            "name": "q",
+                            "allowMultiple": false,
+                            "enum": [
+                                "byGeoNodeTypeAndName"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The type of the geo nodes.",
+                            "name": "type",
+                            "allowMultiple": false,
+                            "enum": [
+                                "CITY",
+                                "CNTY",
+                                "PROV",
+                                "STAT"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The name of the type of the geo nodes.",
+                            "name": "name",
+                            "allowMultiple": false,
+                            "required": true,
+                            "type": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "geonode-geonode",
+                    "notes": "",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        },
+        {
+            "path": "\/store\/{storeId}\/geonode",
+            "operations": [
+                {
+                    "summary": "Find geo nodes based on query name. See each query for details on input and output.",
+                    "responseClass": "Empty",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findByQuery",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The query name.",
+                            "name": "q",
+                            "allowMultiple": false,
+                            "enum": [
+                                "byGeoNodeTypeAndName"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "Empty",
+                    "notes": "",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        }
+    ],
+    "description": "This class provides RESTful services to get geo node details. It performs the service by delegating to the GeoNode BOD service."
+}

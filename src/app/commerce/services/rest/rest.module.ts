@@ -24,6 +24,7 @@ import { CountryService } from "./transaction/country.service";
 import { ConfigurationService } from "./transaction/configuration.service";
 import { SubscriptionService } from "./transaction/subscription.service";
 import { ESpotService } from "./transaction/eSpot.service";
+import { StoreLocatorService } from "./transaction/storeLocator.service";
 
 @NgModule({
     providers: [
@@ -41,7 +42,8 @@ import { ESpotService } from "./transaction/eSpot.service";
         CountryService,
         ConfigurationService,
         SubscriptionService,
-        ESpotService
+        ESpotService,
+        StoreLocatorService
 	]
 })
 export class RestModule { }

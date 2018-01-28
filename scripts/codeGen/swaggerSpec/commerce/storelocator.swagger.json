@@ -1,0 +1,825 @@
+{
+    "apiVersion": "WC.TOOLKIT Enterprise Version : 8 Fix Pack : 0",
+    "basePath": "https:\/\/@localhost\/wcs\/resources",
+    "models": {
+        "Empty": {
+            "id": "Empty",
+            "description": "Empty model. Used as default value when no model is specified.",
+            "properties": {}
+        },
+        "storelocator-storelocator_item": {
+            "id": "storelocator-storelocator_item",
+            "properties": {
+                "telephone1": {
+                    "description": "",
+                    "type": "string",
+                    "required": true
+                },
+                "Description": {
+                    "items": {
+                        "$ref": "storelocator-storelocator_item.Description"
+                    },
+                    "description": "",
+                    "required": false,
+                    "type": "array"
+                },
+                "storeName": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "uniqueID": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "city": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "country": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "userDataField": {
+                    "items": {
+                        "$ref": "storelocator-storelocator_item.userDataField"
+                    },
+                    "description": "",
+                    "required": false,
+                    "type": "array"
+                },
+                "addressLine": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "",
+                    "type": "array",
+                    "required": false
+                },
+                "stateOrProvinceName": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "distance": {
+                    "description": "",
+                    "format": "double",
+                    "type": "string",
+                    "required": false
+                },
+                "postalCode": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "Attribute": {
+                    "items": {
+                        "$ref": "storelocator-storelocator_item.Attribute"
+                    },
+                    "description": "",
+                    "required": false,
+                    "type": "array"
+                },
+                "longitude": {
+                    "description": "",
+                    "format": "double",
+                    "type": "string",
+                    "required": false
+                },
+                "latitude": {
+                    "description": "",
+                    "format": "double",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        "storelocator-storelocator_item.Attribute": {
+            "id": "storelocator-storelocator_item.Attribute",
+            "properties": {
+                "name": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "value": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "displayName": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "displayValue": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        "storelocator-storelocator_item.userDataField": {
+            "id": "storelocator-storelocator_item.userDataField",
+            "properties": {
+                "value": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "key": {
+                    "description": "",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "storelocator-storelocator_item.Description": {
+            "id": "storelocator-storelocator_item.Description",
+            "properties": {
+                "displayStoreName": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        "storelocator-storelocator": {
+            "id": "storelocator-storelocator",
+            "properties": {
+                "recordSetTotal": {
+                    "description": "",
+                    "format": "int64",
+                    "type": "string",
+                    "required": false
+                },
+                "recordSetCount": {
+                    "description": "",
+                    "format": "int64",
+                    "type": "string",
+                    "required": false
+                },
+                "recordSetComplete": {
+                    "description": "",
+                    "type": "string",
+                    "required": false
+                },
+                "recordSetStartNumber": {
+                    "description": "",
+                    "format": "int64",
+                    "type": "string",
+                    "required": false
+                },
+                "PhysicalStore": {
+                    "items": {
+                        "$ref": "storelocator-storelocator_item"
+                    },
+                    "description": "",
+                    "required": false,
+                    "type": "array"
+                }
+            }
+        }
+    },
+    "swaggerVersion": "1.2",
+    "resourcePath": "store\/{storeId}\/storelocator",
+    "apis": [
+        {
+            "path": "\/store\/{storeId}\/storelocator\/byLocation",
+            "operations": [
+                {
+                    "summary": "Gets store location information by a specified location.",
+                    "responseClass": "storelocator-storelocator",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "No physical store is found for the criteria provided.",
+                            "code": 404
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findGeoNodeByGeoLocation",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The response format. If the request has an input body, that body must also use the format specified in \"responseFormat\". Valid values include \"json\" and \"xml\" without the quotes. If the responseFormat isn't specified, the \"accept\" HTTP header shall be used to determine the format of the response. If the \"accept\" HTTP header isn't specified as well, the default response format shall be in json.",
+                            "name": "responseFormat",
+                            "allowMultiple": false,
+                            "enum": [
+                                "xml",
+                                "json"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The city.",
+                            "name": "city",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The state.",
+                            "name": "state",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The province.",
+                            "name": "prov",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The country.",
+                            "name": "country",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The radius unit of measure.",
+                            "name": "radiusUOM",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The physcal store attribute name that describes whether the store is a beauty center.",
+                            "name": "BeautyCenter",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The physical store attribute name to describe the type of the store.",
+                            "name": "Type",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The radius.",
+                            "name": "radius",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Page number, starting at 1. Valid values include positive integers of 1 and above. The \"pageSize\" must be specified for paging to work.",
+                            "name": "pageNumber",
+                            "allowMultiple": false,
+                            "format": "int32",
+                            "required": false,
+                            "type": "integer",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Page size. Used to limit the amount of data returned by a query. Valid values include positive integers of 1 and above. The \"pageNumber\" must be specified for paging to work.",
+                            "name": "pageSize",
+                            "allowMultiple": false,
+                            "format": "int32",
+                            "required": false,
+                            "type": "integer",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "If it is 'true', a site level physical search will be performed.  Otherwise, the physical store search will be performed at the web store level. By default, it is 'true'.",
+                            "name": "siteLevelStoreSearch",
+                            "allowMultiple": false,
+                            "enum": [
+                                "true",
+                                "false"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "storelocator-storelocator",
+                    "notes": "",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        },
+        {
+            "path": "\/store\/{storeId}\/storelocator\/byGeoNode\/{geoId}",
+            "operations": [
+                {
+                    "summary": "Gets store location information by a geo node unique ID.",
+                    "responseClass": "storelocator-storelocator",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findGeoNodeByGeoId",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The geo node unique identifier.",
+                            "name": "geoId",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "Page number, starting at 1. Valid values include positive integers of 1 and above. The \"pageSize\" must be specified for paging to work.",
+                            "name": "pageNumber",
+                            "allowMultiple": false,
+                            "format": "int32",
+                            "required": false,
+                            "type": "integer",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Page size. Used to limit the amount of data returned by a query. Valid values include positive integers of 1 and above. The \"pageNumber\" must be specified for paging to work.",
+                            "name": "pageSize",
+                            "allowMultiple": false,
+                            "format": "int32",
+                            "required": false,
+                            "type": "integer",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The physcal store attribute name that describes whether the store is a beauty center.",
+                            "name": "BeautyCenter",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The physical store attribute name to describe the type of the store.",
+                            "name": "Type",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The response format. If the request has an input body, that body must also use the format specified in \"responseFormat\". Valid values include \"json\" and \"xml\" without the quotes. If the responseFormat isn't specified, the \"accept\" HTTP header shall be used to determine the format of the response. If the \"accept\" HTTP header isn't specified as well, the default response format shall be in json.",
+                            "name": "responseFormat",
+                            "allowMultiple": false,
+                            "enum": [
+                                "xml",
+                                "json"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "If it is 'true', a site level physical search will be performed.  Otherwise, the physical store search will be performed at the web store level. By default, it is 'true'.",
+                            "name": "siteLevelStoreSearch",
+                            "allowMultiple": false,
+                            "enum": [
+                                "true",
+                                "false"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "storelocator-storelocator",
+                    "notes": "",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        },
+        {
+            "path": "\/store\/{storeId}\/storelocator\/byStoreId\/{uniqueId}",
+            "operations": [
+                {
+                    "summary": "Gets store location information by a store unique ID.",
+                    "responseClass": "storelocator-storelocator",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findByStoreUniqueId",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The unique identifier.",
+                            "name": "uniqueId",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The response format. If the request has an input body, that body must also use the format specified in \"responseFormat\". Valid values include \"json\" and \"xml\" without the quotes. If the responseFormat isn't specified, the \"accept\" HTTP header shall be used to determine the format of the response. If the \"accept\" HTTP header isn't specified as well, the default response format shall be in json.",
+                            "name": "responseFormat",
+                            "allowMultiple": false,
+                            "enum": [
+                                "xml",
+                                "json"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Page number, starting at 1. Valid values include positive integers of 1 and above. The \"pageSize\" must be specified for paging to work.",
+                            "name": "pageNumber",
+                            "allowMultiple": false,
+                            "format": "int32",
+                            "required": false,
+                            "type": "integer",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Page size. Used to limit the amount of data returned by a query. Valid values include positive integers of 1 and above. The \"pageNumber\" must be specified for paging to work.",
+                            "name": "pageSize",
+                            "allowMultiple": false,
+                            "format": "int32",
+                            "required": false,
+                            "type": "integer",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "storelocator-storelocator",
+                    "notes": "",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        },
+        {
+            "path": "\/store\/{storeId}\/storelocator\/byStoreIds",
+            "operations": [
+                {
+                    "summary": "Gets store location information by one to n store unique IDs.",
+                    "responseClass": "storelocator-storelocator",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findByStoreUniqueIds",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "A list of physical store unique identifiers.",
+                            "name": "physicalStoreId",
+                            "allowMultiple": true,
+                            "required": true,
+                            "type": "java.util.List",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The response format. If the request has an input body, that body must also use the format specified in \"responseFormat\". Valid values include \"json\" and \"xml\" without the quotes. If the responseFormat isn't specified, the \"accept\" HTTP header shall be used to determine the format of the response. If the \"accept\" HTTP header isn't specified as well, the default response format shall be in json.",
+                            "name": "responseFormat",
+                            "allowMultiple": false,
+                            "enum": [
+                                "xml",
+                                "json"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Page number, starting at 1. Valid values include positive integers of 1 and above. The \"pageSize\" must be specified for paging to work.",
+                            "name": "pageNumber",
+                            "allowMultiple": false,
+                            "format": "int32",
+                            "required": false,
+                            "type": "integer",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "Page size. Used to limit the amount of data returned by a query. Valid values include positive integers of 1 and above. The \"pageNumber\" must be specified for paging to work.",
+                            "name": "pageSize",
+                            "allowMultiple": false,
+                            "format": "int32",
+                            "required": false,
+                            "type": "integer",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "storelocator-storelocator",
+                    "notes": "",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        },
+        {
+            "path": "\/store\/{storeId}\/storelocator\/latitude\/{latitude}\/longitude\/{longitude}",
+            "operations": [
+                {
+                    "summary": "Gets store location information by specified coordinates.",
+                    "responseClass": "storelocator-storelocator",
+                    "responseMessages": [
+                        {
+                            "message": "The requested completed successfully.",
+                            "code": 200
+                        },
+                        {
+                            "message": "Bad request. Some of the inputs provided to the request aren't valid.",
+                            "code": 400
+                        },
+                        {
+                            "message": "Not authenticated. The user session isn't valid.",
+                            "code": 401
+                        },
+                        {
+                            "message": "The user isn't authorized to perform the specified request.",
+                            "code": 403
+                        },
+                        {
+                            "message": "Internal server error. Additional details will be contained on the server logs.",
+                            "code": 500
+                        }
+                    ],
+                    "secureCallMandatory": false,
+                    "nickname": "findStores",
+                    "produces": [
+                        "application\/json",
+                        "application\/xml",
+                        "application\/xhtml+xml",
+                        "application\/atom+xml"
+                    ],
+                    "method": "GET",
+                    "parameters": [
+                        {
+                            "description": "The store identifier.",
+                            "name": "storeId",
+                            "enum": [
+                                "0",
+                                "10001",
+                                "10051",
+                                "10101",
+                                "10151",
+                                "10201",
+                                "10202"
+                            ],
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The latitude.",
+                            "name": "latitude",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The longitude.",
+                            "name": "longitude",
+                            "required": true,
+                            "type": "string",
+                            "paramType": "path"
+                        },
+                        {
+                            "description": "The response format. If the request has an input body, that body must also use the format specified in \"responseFormat\". Valid values include \"json\" and \"xml\" without the quotes. If the responseFormat isn't specified, the \"accept\" HTTP header shall be used to determine the format of the response. If the \"accept\" HTTP header isn't specified as well, the default response format shall be in json.",
+                            "name": "responseFormat",
+                            "allowMultiple": false,
+                            "enum": [
+                                "xml",
+                                "json"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The maximum number of stores to return.",
+                            "name": "maxItems",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The radius unit of measure.",
+                            "name": "radiusUOM",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The physcal store attribute name that describes whether the store is a beauty center.",
+                            "name": "BeautyCenter",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The physical store attribute name to describe the type of the store.",
+                            "name": "Type",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "The radius.",
+                            "name": "radius",
+                            "allowMultiple": false,
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        },
+                        {
+                            "description": "If it is 'true', a site level physical search will be performed.  Otherwise, the physical store search will be performed at the web store level. By default, it is 'true'.",
+                            "name": "siteLevelStoreSearch",
+                            "allowMultiple": false,
+                            "enum": [
+                                "true",
+                                "false"
+                            ],
+                            "required": false,
+                            "type": "string",
+                            "paramType": "query"
+                        }
+                    ],
+                    "type": "storelocator-storelocator",
+                    "notes": "",
+                    "partialAuthenticationAllowed": true
+                }
+            ]
+        }
+    ],
+    "description": "This class provides RESTful services to get store locator details. It performs the service by delegating to the PhysicalStore and GeoNode BOD services."
+}

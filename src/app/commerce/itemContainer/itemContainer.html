@@ -4,7 +4,7 @@
 
 			<a [routerLink]="[getUrl(item)]" >
 				<div class="productinfo text-center" [ngClass]="{categoryinfo: !item.price} ">
-					<img src="{{item.thumbnail}}" alt="" />
+					<img [src]="item.thumbnail" alt="" />
 					<h2 *ngIf="item.price">
 						<ng-container *ngFor="let price of item.price">
 							<span *ngIf="price.usage === 'Offer'">${{price.value}}</span>

@@ -34,6 +34,7 @@ const pageRoutes: Routes = [
 	{ path: 'corpRel', loadChildren: './corpRelations/corpRelations.module#CorpRelationsModule' },
 	{ path: 'corpRes', loadChildren: './corpResponsibility/corpResponsibility.module#CorpResponsibilityModule' },
 	{ path: 'help', loadChildren: './help/help.module#HelpModule' },
+	{ path: 'storeLocator', loadChildren: './storeLocator/storeLocator.module#StoreLocatorModule' },
 	{ path: 'forgotPassword', loadChildren: './forgotPassword/forgotPassword.module#ForgotPasswordModule' },
 	{ path: 'common/addressBook', loadChildren: './common/addressBook/addressBook.module#AddressBookModule' },
 	{ path: 'sessionTimeOut', loadChildren: './sessionTimeOut/sessionTimeOut.module#SessionTimeOutModule' },
