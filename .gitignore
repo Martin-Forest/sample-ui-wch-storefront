@@ -1,6 +1,10 @@
 node_modules/
 bower_components/
 assets/
+content/
+image-profiles/
+renditions/
+types/
 scan/
 coverage/
 artifacts/
