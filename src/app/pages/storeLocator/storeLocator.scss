@@ -1,16 +1,15 @@
-@import '../../common/variables';
- 
-/*************************
-******* Store Locator CSS ******
-**************************/
- 
-h2.title:after{
-    content: " ";
-    position: absolute;
-    border: 1px solid $brand-color-primary;
-    bottom:8px;
-    left: 0;
-    width: 100%;
-    height: 0;
-    z-index: -2;
+@import '../../common/variables.scss';
+
+storLocator-page h3{
+	color: $brand-color-tertiary;
+}
+
+
+.store-locator-result{
+	   
+	    padding: 15px 10px;
+}
+
+.store-locator-result__addr3, .storeHours{
+	padding: 10px 0;
 }

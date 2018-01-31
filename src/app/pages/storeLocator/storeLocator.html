@@ -20,13 +20,13 @@
 			<div>
 				<h2 class="title text-center">Store Location</h2>
 			</div>
-			<div *ngFor="let store of msg">
+			<div *ngFor="let store of msg"  class="col-sm-6">
 				<h3>{{store.Description[0].displayStoreName}}</h3>
-				<p>{{store.addressLine[0]}}</p>
-				<p>{{store.city}}, {{store.stateOrProvinceName}}</p>
-				<p>{{store.postalCode}}</p>
-				<p>Tel.: {{store.telephone1}}</p>
-				<div *ngFor="let attribute of store.Attribute">
+				<div class="store-locator-result__addr2">{{store.addressLine[0]}}</div>
+				<div class="store-locator-result__addr3">{{store.city}}, {{store.stateOrProvinceName}} &nbsp; {{store.postalCode}}</div>
+				
+				<div class="store-locator-result__phone"><strong>Tel.:</strong> {{store.telephone1}}</div>
+				<div *ngFor="let attribute of store.Attribute" class="storeHours">
 					<div *ngIf="attribute.name=='StoreHours'"> 
 						<p>Store hours: </p>
 						<div [innerHTML]="attribute.value"></div>
