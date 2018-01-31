@@ -5,22 +5,10 @@
 				<div class="logo pull-left">
 					<a routerLink="/home" routerLinkActive="active"><img class="logo" [src]="logoSrc" alt="" /></a>
 				</div>
-				<div class="btn-group pull-right">
-					<language-selection></language-selection>
-					
-					<div class="btn-group">
-						<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-							DOLLAR
-							<span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a routerLink="/nowhere" translate>Canadian Dollar</a></li>
-							<li><a routerLink="/nowhere" translate>Pound</a></li>
-						</ul>
-					</div>
-				</div>
+			
 			</div>
 			<div class="col-sm-8">
+			
 				<div class="shop-menu pull-right">
 					<ul class="nav navbar-nav">
 						<li *ngIf="isLoggedIn" class="shop-menu-item">
@@ -30,15 +18,15 @@
 							</a>
 						</li>
 						<li class="shop-menu-item">
+ 						   <a class="shop-menu-link" routerLink="/storeLocator" routerLinkActive="active">
+  								      <i class="fa fa-home"></i>
+ 						       <span translate>Store Locator</span>
+ 								   </a>
+							</li>
+						<li class="shop-menu-item">
 							<a class="shop-menu-link" routerLink="/nowhere">
 								<i class="fa fa-star"></i>
 								<span translate>Wishlist</span>
-							</a>
-						</li>
-						<li class="shop-menu-item">
-							<a class="shop-menu-link" routerLink="/storeLocator" routerLinkActive="active">
-								<i class="fa fa-home"></i>
-								<span translate>Store Locator</span>
 							</a>
 						</li>
 						<li class="shop-menu-item">
@@ -66,6 +54,22 @@
 							</a>
 						</li>
 					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="btn-group pull-right">
+					<language-selection></language-selection>
+					
+					<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+							DOLLAR
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a routerLink="/nowhere" translate>Canadian Dollar</a></li>
+							<li><a routerLink="/nowhere" translate>Pound</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 @import '../../../common/variables';
 
 .header_top {
-	background-color: $brand-color-secondary;
+	background-color: $brand-color-primary;
 }
 
 .contactinfo {
@@ -9,7 +9,7 @@
 
 	.contact-link {
 		font-size: 12px;
-		color: lighten($base-text-color, 10%);
+		color: lighten($white, 10%);
 
 		&:hover {
 			background: inherit;
@@ -20,7 +20,7 @@
 .social-icons .social-icons-link {
 	border: 0 none;
 	border-radius: 0;
-	color: lighten($base-text-color, 10%);
+	color: lighten($white, 10%);
 	padding: 0;
 
 	.fa {

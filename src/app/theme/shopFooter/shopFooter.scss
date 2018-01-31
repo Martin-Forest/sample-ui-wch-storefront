@@ -5,12 +5,12 @@
 **************************/
 
 #footer {
-  background: $brand-color-secondary;
+  background: $brand-color-primary;
 }
 
 
 .footer-top .container {
-  border-bottom: 1px solid darken($brand-color-secondary, 10%);
+  border-bottom: 1px solid darken($white, 10%);
   padding-bottom: 20px;
 }
 
@@ -19,18 +19,18 @@
 }
 
 .companyinfo h2 {
-  color: lighten($brand-color-tertiary, 30%);
+  color: lighten($white, 30%);
   font-family: abel;
   font-size: 27px;
   text-transform: uppercase;
 }
 
 .companyinfo h2  span{
-  color:$brand-color-primary;
+  color:$white;
 }
 
 .companyinfo p {
-  color: lighten($brand-color-tertiary, 30%);
+  color: lighten($white, 30%);
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: 300;
@@ -55,7 +55,7 @@
   display: block;
   height: 61px;
   margin-bottom: 10px;
-  border: 2px solid darken($brand-color-secondary, 30%);
+  border: 2px solid darken($white, 30%);
   border-radius: 3px;
 }
 
@@ -64,7 +64,7 @@
   top: 0;
   width: 100%;
   height: 61px;
-  background: $brand-color-primary;
+  background: $white;
   border-radius: 3px;
   color: $white;
   font-size: 20px;
@@ -115,7 +115,7 @@
 }
 
 .address address {
-  color: darken($brand-color-tertiary, 10%);
+  color: darken($white, 10%);
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -134,7 +134,7 @@
 }
 
 .single-widget h2 {
-  color: darken($brand-color-tertiary, 10%);
+  color: darken($white, 10%);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -147,7 +147,7 @@
 }
 
 .single-widget ul li a{
-	color: $brand-color-tertiary;
+	color: $white;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-weight: 300;
@@ -160,7 +160,7 @@
 
 .single-widget ul li a:hover{
 	background:none;
-	color:$brand-color-primary;
+	color:$brand-color-tertiary;
 }
 
 
@@ -177,7 +177,7 @@
 
 
 .searchform button {
-  background: $brand-color-primary;
+  background: $brand-color-tertiary;
   border: medium none;
   border-radius: 0;
   margin-left: -5px;
@@ -192,7 +192,7 @@
 
 .searchform  button:hover, 
 .searchform  button:focus{
-	background-color:$brand-color-primary;
+	background-color:$brand-color-secondary;
 }
 
 .searchform p {
